@@ -14,13 +14,6 @@ return new class extends Migration
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
             $table->integer('week'); // Uge nummer
-            $table->foreignId('monday')->nullable()->constrained('recipes')->onDelete('set null');
-            $table->foreignId('tuesday')->nullable()->constrained('recipes')->onDelete('set null');
-            $table->foreignId('wednesday')->nullable()->constrained('recipes')->onDelete('set null');
-            $table->foreignId('thursday')->nullable()->constrained('recipes')->onDelete('set null');
-            $table->foreignId('friday')->nullable()->constrained('recipes')->onDelete('set null');
-            $table->foreignId('saturday')->nullable()->constrained('recipes')->onDelete('set null');
-            $table->foreignId('sunday')->nullable()->constrained('recipes')->onDelete('set null');
             $table->timestamps();
         });
     }
