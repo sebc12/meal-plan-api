@@ -13,49 +13,49 @@ class Plan extends Model
 
     protected $fillable = [
         'week',
-        'day_1',
-        'day_2',
-        'day_3',
-        'day_4',
-        'day_5',
-        'day_6',
-        'day_7',
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday'
     ];
     
 
-    public function day1()
+    public function monday()
     {
-        return $this->belongsTo(Recipe::class, 'day_1');
+        return $this->belongsTo(Recipe::class, 'monday');
     }
 
-    public function day2()
+    public function tuesday()
     {
-        return $this->belongsTo(Recipe::class, 'day_2');
+        return $this->belongsTo(Recipe::class, 'tuesday');
     }
 
-    public function day3()
+    public function wednesday()
     {
-        return $this->belongsTo(Recipe::class, 'day_3');
+        return $this->belongsTo(Recipe::class, 'wednesday');
     }
 
-    public function day4()
+    public function thursday()
     {
-        return $this->belongsTo(Recipe::class, 'day_4');
+        return $this->belongsTo(Recipe::class, 'thursday');
     }
 
-    public function day5()
+    public function friday()
     {
-        return $this->belongsTo(Recipe::class, 'day_5');
+        return $this->belongsTo(Recipe::class, 'friday');
     }
 
-    public function day6()
+    public function saturday()
     {
-        return $this->belongsTo(Recipe::class, 'day_6');
+        return $this->belongsTo(Recipe::class, 'saturday');
     }
 
-    public function day7()
+    public function sunday()
     {
-        return $this->belongsTo(Recipe::class, 'day_7');
+        return $this->belongsTo(Recipe::class, 'sunday');
     }
 
     
