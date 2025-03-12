@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipeController;
-use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\PlanController;
 
 /*
@@ -23,5 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::apiResource('recipes', RecipeController::class);
-Route::apiResource('ingredients', IngredientController::class);
 Route::apiResource('plans', PlanController::class);

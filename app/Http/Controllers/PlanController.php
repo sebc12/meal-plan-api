@@ -15,7 +15,7 @@ class PlanController extends Controller
 
     public function store(Request $request)
     {
-        // Valider plan-data
+        // Valider input med brugerdefinerede fejlbeskeder
         $validated = $request->validate([
             'week' => 'required|integer',
             'meals' => 'required|array',
@@ -23,11 +23,10 @@ class PlanController extends Controller
             'meals.*.type' => 'required|in:Breakfast,Lunch,Dinner',
             'meals.*.recipe_id' => 'nullable|exists:recipes,id',
         ]);
-
-        // Opret planen
+    
+        // Opret planen (hvis valideringen består)
         $plan = Plan::create(['week' => $validated['week']]);
-
-        // Opret måltiderne til planen
+    
         foreach ($validated['meals'] as $meal) {
             Meal::create([
                 'plan_id' => $plan->id,
@@ -36,9 +35,10 @@ class PlanController extends Controller
                 'recipe_id' => $meal['recipe_id'] ?? null,
             ]);
         }
-
+    
         return response()->json($plan->load('meals.recipe'), 201);
     }
+    
 
     public function show($id)
     {
