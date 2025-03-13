@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Opskriftens navn
+            $table->string('name')->unique(); // Opskriftens navn
             $table->text('description')->nullable(); // Beskrivelse af opskriften
             $table->json('ingredients'); // JSON-kolonne til ingredienser
             $table->timestamps();
